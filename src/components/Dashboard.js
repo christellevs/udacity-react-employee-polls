@@ -6,11 +6,9 @@ const Dashboard = (props) => {
     <div>
       <h3>Employee Web Polls</h3>
       <div>
-        <ul>
+        <ul className="poll-list">
           {props.questionIds.map((id) => (
-            <li key={id}>
-              <Poll id={id} />
-            </li>
+            <Poll key={id} id={id} />
           ))}
         </ul>
         {/* <label>Answered</label>

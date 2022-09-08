@@ -1,8 +1,17 @@
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { formatDate } from "../utils/helpers.js";
 
 const Poll = (props) => {
   console.log(props);
-  return <div>Poll</div>;
+
+  return (
+    <Link to={`question/${props.question.id}`} className="poll">
+      <h5>{props.question.author}</h5>
+      <p>{formatDate(props.question.timestamp)}</p>
+      <button>View</button>
+    </Link>
+  );
 };
 
 const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
