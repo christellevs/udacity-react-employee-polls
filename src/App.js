@@ -1,12 +1,19 @@
 import "./App.css";
+import { useEffect } from "react";
+import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { handleInitialData } from "./actions/shared.js";
 import Navbar from "./components/Navbar.js";
 import Dashboard from "./components/Dashboard.js";
 import Leaderboard from "./components/Leaderboard.js";
 import NewPoll from "./components/NewPoll.js";
 import Login from "./components/Login.js";
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.dispatch(handleInitialData());
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
@@ -20,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);
