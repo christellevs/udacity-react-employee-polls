@@ -8,10 +8,13 @@ const Poll = (props) => {
   const { id, name, avatar, timestamp } = props.question;
   return (
     <Link to={`questions/${id}`} className="poll">
-      <img src={avatar} />
-      <h5>{name}</h5>
-      <p>{formatDate(timestamp)}</p>
-      <button>View</button>
+      <div>
+        <img src={avatar} />
+      </div>
+      <div>
+        <h5>{name}</h5>
+        <p>{formatDate(timestamp)}</p>
+      </div>
     </Link>
   );
 };
