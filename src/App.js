@@ -17,14 +17,18 @@ function App(props) {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/add" element={<NewPoll />} />
-        <Route exact path="/leaderboard" element={<Leaderboard />} />
-        <Route exact path="/login" element={<Login />} />
-      </Routes>
+      {props.loading === true ? null : (
+        <Routes>
+          <Route exact path="/" element={<Dashboard />} />
+          <Route exact path="/add" element={<NewPoll />} />
+          <Route exact path="/leaderboard" element={<Leaderboard />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
+      )}
     </div>
   );
 }
+
+const mapStateToProps = ({ authedUser }) => ({ loading: authedUser === null });
 
 export default connect()(App);
