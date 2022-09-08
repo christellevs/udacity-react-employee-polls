@@ -1,4 +1,6 @@
 import { connect } from "react-redux";
+import Poll from "./Poll.js";
+
 const Dashboard = (props) => {
   return (
     <div>
@@ -7,7 +9,7 @@ const Dashboard = (props) => {
         <ul>
           {props.questionIds.map((id) => (
             <li key={id}>
-              <div>Question ID {id}</div>
+              <Poll id={id} />
             </li>
           ))}
         </ul>
