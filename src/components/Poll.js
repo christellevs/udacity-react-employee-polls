@@ -6,7 +6,7 @@ const Poll = (props) => {
   console.log(props);
 
   return (
-    <Link to={`question/${props.question.id}`} className="poll">
+    <Link to={`questions/${props.question.id}`} className="poll">
       <h5>{props.question.author}</h5>
       <p>{formatDate(props.question.timestamp)}</p>
       <button>View</button>
