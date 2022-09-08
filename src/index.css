@@ -22,6 +22,8 @@ code {
   display: block;
   border-radius: 8px;
   border-style: solid;
+  border-color: #aaa;
+  color: #000;
   width: 50%;
   height: 130px;
   margin: 10px;
