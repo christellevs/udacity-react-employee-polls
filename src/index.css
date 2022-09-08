@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.poll-list {
+
+
+}
+
+.poll {
+  display: block;
+  border-radius: 8px;
+  border-style: solid;
+  width: 50%;
+  height: 130px;
+  margin: 10px;
+}
