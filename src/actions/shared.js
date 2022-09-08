@@ -1,7 +1,7 @@
-import { getInitialData } from "../utils/api";
-import { receiveUsers } from "./users";
-import { receiveQuestions } from "./questions";
-import { setAuthedUser } from "./authedUser";
+import { getInitialData } from "../utils/api.js";
+import { receiveUsers } from "./users.js";
+import { receiveQuestions } from "./questions.js";
+import { setAuthedUser } from "./authedUser.js";
 
 const AUTHED_ID = "sarahedo";
 
