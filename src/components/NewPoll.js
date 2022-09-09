@@ -3,23 +3,26 @@ import { useNavigate } from "react-router-dom";
 
 const NewPoll = () => {
   const navigate = useNavigate();
-  const [optionOne, setOptionOne] = useState("");
-  const [optionTwo, setOptionTwo] = useState("");
+  const [optionOneText, setOptionOneText] = useState("");
+  const [optionTwoText, setOptionTwoText] = useState("");
 
   const onChangeOptionOne = (e) => {
-    console.log(e.target.value); // TODO - remove
-    setOptionOne(e.target.value);
+    setOptionOneText(e.target.value);
   };
 
   const onChangeOptionTwo = (e) => {
-    console.log(e.target.value); // TODO - remove
-    setOptionTwo(e.target.value);
+    setOptionTwoText(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOptionOne("");
-    setOptionTwo("");
+
+    // TODO: Add tweet to store
+    console.log("Option one", optionOneText);
+    console.log("Option two", optionTwoText);
+
+    setOptionOneText("");
+    setOptionTwoText("");
     navigate("/");
   };
 
@@ -30,18 +33,24 @@ const NewPoll = () => {
 
       <form className="new-poll" onSubmit={handleSubmit}>
         <div>
-          <label>First Option</label>
-          <input type="text" value={optionOne} onChange={onChangeOptionOne} />
-        </div>
-        <div>
-          <label>Second Option</label>
-          <input type="text" value={optionTwo} onChange={onChangeOptionTwo} />
+          <input
+            type="text"
+            value={optionOneText}
+            placeholder="Option One..."
+            onChange={onChangeOptionOne}
+          />
+          <input
+            type="text"
+            value={optionTwoText}
+            placeholder="Option Two..."
+            onChange={onChangeOptionTwo}
+          />
         </div>
         <div>
           <button
             className="btn"
             type="submit"
-            disabled={optionOne === "" || optionTwo === ""}
+            disabled={optionOneText === "" || optionTwoText === ""}
           >
             Submit
           </button>
