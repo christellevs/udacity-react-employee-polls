@@ -5,7 +5,8 @@ import { formatDate, formatQuestion } from "../utils/helpers.js";
 const Poll = (props) => {
   console.log(props);
 
-  const { id, name, avatar, timestamp } = props.question;
+  const { id, name, avatar, timestamp, optionOneText, optionTwoText } =
+    props.question;
   return (
     <Link to={`questions/${id}`} className="poll">
       <div>
@@ -14,6 +15,8 @@ const Poll = (props) => {
       <div>
         <h5>{name}</h5>
         <p>{formatDate(timestamp)}</p>
+        <p>Option 1: {optionOneText}</p>
+        <p>Option 2: {optionTwoText}</p>
       </div>
     </Link>
   );
