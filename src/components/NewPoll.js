@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { handleAddQuestion } from "../actions/questions.js";
 
-const NewPoll = () => {
+const NewPoll = ({ dispatch }) => {
   const navigate = useNavigate();
   const [optionOneText, setOptionOneText] = useState("");
   const [optionTwoText, setOptionTwoText] = useState("");
@@ -17,7 +19,7 @@ const NewPoll = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TODO: Add tweet to store
+    dispatch(handleAddQuestion(optionOneText, optionTwoText));
     console.log("Option one", optionOneText);
     console.log("Option two", optionTwoText);
 
@@ -60,4 +62,4 @@ const NewPoll = () => {
   );
 };
 
-export default NewPoll;
+export default connect()(NewPoll);
