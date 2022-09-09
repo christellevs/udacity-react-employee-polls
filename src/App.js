@@ -9,6 +9,7 @@ import Leaderboard from "./components/Leaderboard.js";
 import PollPage from "./components/PollPage.js";
 import NewPoll from "./components/NewPoll.js";
 import Login from "./components/Login.js";
+import LoadingBar from "react-redux-loading-bar";
 
 function App(props) {
   useEffect(() => {
@@ -17,6 +18,7 @@ function App(props) {
 
   return (
     <div className="App">
+      <LoadingBar />
       <Navbar />
       {props.loading === true ? null : (
         <Routes>
@@ -33,4 +35,4 @@ function App(props) {
 
 const mapStateToProps = ({ authedUser }) => ({ loading: authedUser === null });
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
