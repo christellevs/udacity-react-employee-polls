@@ -14,9 +14,11 @@ export function formatQuestion(question, questionAuthor, authedUser) {
     avatar: avatarURL,
     timestamp,
     optionOneText: optionOne.text,
-    optionOneVotes: optionOne.votes.length,
+    optionOneVotes: optionOne.votes,
+    optionOneVotesTotal: optionOne.votes.length,
     optionTwoText: optionTwo.text,
-    optionTwoVotes: optionTwo.votes.length,
+    optionTwoVotes: optionTwo.votes,
+    optionTwoVotesTotal: optionTwo.votes.length,
     isAnswered:
       optionOne.votes.includes(authedUser) ||
       optionTwo.votes.includes(authedUser)
