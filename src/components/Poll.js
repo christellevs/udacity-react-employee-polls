@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { formatDate, formatQuestion } from "../utils/helpers.js";
+import { formatQuestion } from "../utils/helpers.js";
 
 const Poll = (props) => {
   console.log(props);
@@ -14,7 +14,7 @@ const Poll = (props) => {
       </div>
       <div>
         <h5>{name}</h5>
-        <p>{formatDate(timestamp)}</p>
+        <p>{timestamp}</p>
         <p>Option 1: {optionOneText}</p>
         <p>Option 2: {optionTwoText}</p>
       </div>

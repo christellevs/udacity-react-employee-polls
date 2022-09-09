@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { handleInitialData } from "./actions/shared.js";
@@ -19,16 +19,18 @@ function App(props) {
   return (
     <div className="App">
       <LoadingBar />
-      <Navbar />
-      {props.loading === true ? null : (
-        <Routes>
-          <Route exact path="/" element={<Dashboard />} />
-          <Route exact path="/add" element={<NewPoll />} />
-          <Route exact path="/leaderboard" element={<Leaderboard />} />
-          <Route exact path="/questions/:id" element={<PollPage />} />
-          <Route exact path="/login" element={<Login />} />
-        </Routes>
-      )}
+      <div>
+        <Navbar />
+        {props.loading === true ? null : (
+          <Routes>
+            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/add" element={<NewPoll />} />
+            <Route exact path="/leaderboard" element={<Leaderboard />} />
+            <Route exact path="/questions/:id" element={<PollPage />} />
+            <Route exact path="/login" element={<Login />} />
+          </Routes>
+        )}
+      </div>
     </div>
   );
 }
