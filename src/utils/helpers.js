@@ -12,13 +12,11 @@ export function formatQuestion(question, questionAuthor, authedUser) {
     id,
     name,
     avatar: avatarURL,
-    timestamp,
+    timestamp: formatDate(timestamp),
     optionOneText: optionOne.text,
     optionOneVotes: optionOne.votes,
-    optionOneVotesTotal: optionOne.votes.length,
     optionTwoText: optionTwo.text,
     optionTwoVotes: optionTwo.votes,
-    optionTwoVotesTotal: optionTwo.votes.length,
     isAnswered:
       optionOne.votes.includes(authedUser) ||
       optionTwo.votes.includes(authedUser)
