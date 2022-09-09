@@ -10,7 +10,7 @@ const Poll = (props) => {
   return (
     <Link to={`questions/${id}`} className="poll">
       <div>
-        <img src={avatar} />
+        <img src={avatar} alt="Poll Author Avatar" />
       </div>
       <div>
         <h5>{name}</h5>

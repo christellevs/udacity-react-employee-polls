@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers.js";
-import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {

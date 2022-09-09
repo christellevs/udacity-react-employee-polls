@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, Fragment } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { handleInitialData } from "./actions/shared.js";
