@@ -23,7 +23,6 @@ function App(props) {
         {props.loading === true ? null : (
           <>
             <Navbar />
-
             <Routes>
               <Route exact path="/" element={<Dashboard />} />
               <Route exact path="/add" element={<NewPoll />} />

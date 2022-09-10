@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Poll from "./Poll.js";
 
 const Dashboard = (props) => {
   const [answered, setAnswered] = useState(false);
   const [unanswered, setUnanswered] = useState(true);
+
+  const filteredAnswered = Object.values(props.questions).filter(
+    (question) =>
+      question.optionOne.votes.includes(props.authedUser) ||
+      question.optionTwo.votes.includes(props.authedUser)
+  );
+
+  const filteredUnanswered = Object.values(props.questions).filter(
+    (question) =>
+      !question.optionOne.votes.includes(props.authedUser) &&
+      !question.optionTwo.votes.includes(props.authedUser)
+  );
+
+  console.log("answered", filteredAnswered);
+  console.log("unanswerd", filteredUnanswered);
 
   const onChangeAnswered = (e) => {
     console.log("answered", e);
@@ -41,19 +56,21 @@ const Dashboard = (props) => {
 
       <div>
         <ul>
-          {props.questionIds.map((id) => (
-            <Poll key={id} id={id} />
-          ))}
+          {unanswered
+            ? filteredUnanswered.map((q) => <Poll key={q.id} id={q.id} />)
+            : filteredAnswered.map((q) => <Poll key={q.id} id={q.id} />)}
         </ul>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ questions }) => ({
+const mapStateToProps = ({ authedUser, questions }) => ({
+  authedUser,
   questionIds: Object.keys(questions).sort(
     (a, b) => questions[b].timestamp - questions[a].timestamp
   ),
+  questions,
 });
 
 export default connect(mapStateToProps)(Dashboard);
