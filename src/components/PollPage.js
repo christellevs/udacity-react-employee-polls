@@ -19,10 +19,8 @@ const PollPage = (props) => {
   const [optionTwoVoteDisable, setOptionTwoVoteDisable] = useState(false);
   const [vote, setVote] = useState(null);
 
-  console.log("poll page props", props);
   const { name, avatar, timestamp, optionOneText, optionTwoText, isAnswered } =
     props.question;
-  console.log("isAnswered", isAnswered);
 
   const onChangeVoteOne = (e) => {
     e.preventDefault();

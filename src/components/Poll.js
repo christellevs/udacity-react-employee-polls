@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
 
 const Poll = (props) => {
-  console.log(props);
-
   const { id, name, avatar, timestamp, optionOneText, optionTwoText } =
     props.question;
+
   return (
     <Link to={`questions/${id}`} className="poll">
       <div>

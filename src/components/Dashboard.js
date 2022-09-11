@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import Poll from "./Poll.js";
 
 const Dashboard = (props) => {
   const [answered, setAnswered] = useState(false);
   const [unanswered, setUnanswered] = useState(true);
-
-  console.log(props.questions);
 
   const filteredAnswered = Object.values(props.questions)
     .filter(
@@ -24,18 +22,12 @@ const Dashboard = (props) => {
     )
     .sort((a, b) => b.timestamp - a.timestamp);
 
-  console.log("answered", filteredAnswered);
-  console.log("unanswerd", filteredUnanswered);
-
   const onChangeAnswered = (e) => {
-    console.log("answered", e);
-
     setAnswered(!answered);
     setUnanswered(!unanswered);
   };
 
   const onChangeUnanswered = (e) => {
-    console.log("unanswered", e);
     setAnswered(!answered);
     setUnanswered(!unanswered);
   };
