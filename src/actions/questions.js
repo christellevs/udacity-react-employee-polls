@@ -1,8 +1,9 @@
-import { saveQuestion } from "../utils/api.js";
+import { saveQuestion, saveQuestionAnswer } from "../utils/api.js";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
+export const ANSWER_QUESTION = "ANSWER_QUESTION";
 
 function addQuestion(question) {
   return {
@@ -30,5 +31,26 @@ export function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions,
+  };
+}
+
+function answerQuestion({ id, authedUser, hasAnswered }) {
+  return {
+    type: ANSWER_QUESTION,
+    id,
+    authedUser,
+    hasAnswered,
+  };
+}
+
+export function handleAnswerQuestion(info) {
+  return (dispatch) => {
+    dispatch(answerQuestion(info));
+
+    return saveQuestionAnswer(info).catch((e) => {
+      console.warn("Error in handleAnswerQuestion: ", e);
+      dispatch(answerQuestion(info));
+      alert("There was an error voting in the poll. Please try again.");
+    });
   };
 }
