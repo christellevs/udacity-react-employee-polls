@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { formatQuestion } from "../utils/helpers.js";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { formatQuestion } from "../utils/helpers.js";
+import { handleAnswerQuestion } from "../actions/questions.js";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -15,23 +16,31 @@ const withRouter = (Component) => {
 };
 
 const PollPage = (props) => {
-  const [optionOneVoteDisable, setOptionOneVoteDisable] = useState(false);
-  const [optionTwoVoteDisable, setOptionTwoVoteDisable] = useState(false);
-  const [vote, setVote] = useState(null);
-
   const { name, avatar, timestamp, optionOneText, optionTwoText, isAnswered } =
     props.question;
 
   const onChangeVoteOne = (e) => {
     e.preventDefault();
-    setOptionTwoVoteDisable(true);
-    setVote(1);
+    const { dispatch, question, authedUser } = props;
+    dispatch(
+      handleAnswerQuestion({
+        qid: question.id,
+        authedUser,
+        answer: "optionOne",
+      })
+    );
   };
 
   const onChangeVoteTwo = (e) => {
     e.preventDefault();
-    setOptionOneVoteDisable(true);
-    setVote(2);
+    const { dispatch, question, authedUser } = props;
+    dispatch(
+      handleAnswerQuestion({
+        qid: question.id,
+        authedUser,
+        answer: "optionTwo",
+      })
+    );
   };
 
   return (
@@ -43,20 +52,16 @@ const PollPage = (props) => {
         <img src={avatar} alt="Poll Author Avatar" />
         <h3>Would you rather?</h3>
       </div>
-      {!vote ? (
+      {!isAnswered ? (
         <div>
           <div>
             <p>{optionOneText}</p>
-            <button onClick={onChangeVoteOne} disabled={optionOneVoteDisable}>
-              Vote
-            </button>
+            <button onClick={onChangeVoteOne}>Vote</button>
           </div>
           OR
           <div>
             <p>{optionTwoText}</p>
-            <button onClick={onChangeVoteTwo} disabled={optionTwoVoteDisable}>
-              Vote
-            </button>
+            <button onClick={onChangeVoteTwo}>Vote</button>
           </div>
         </div>
       ) : (

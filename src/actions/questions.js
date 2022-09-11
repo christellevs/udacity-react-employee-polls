@@ -34,22 +34,22 @@ export function receiveQuestions(questions) {
   };
 }
 
-function answerQuestion({ id, authedUser, option }) {
+function answerQuestion({ authedUser, qid, answer }) {
   return {
     type: ANSWER_QUESTION,
-    id,
     authedUser,
-    option,
+    qid,
+    answer,
   };
 }
 
-export function handleAnswerQuestion(info) {
+export function handleAnswerQuestion({ authedUser, qid, answer }) {
   return (dispatch) => {
-    dispatch(answerQuestion(info));
+    dispatch(answerQuestion({ authedUser, qid, answer }));
 
-    return saveQuestionAnswer(info).catch((e) => {
+    return saveQuestionAnswer({ authedUser, qid, answer }).catch((e) => {
       console.warn("Error in handleAnswerQuestion: ", e);
-      dispatch(answerQuestion(info));
+      dispatch(answerQuestion({ authedUser, qid, answer }));
       alert("There was an error voting in the poll. Please try again.");
     });
   };
