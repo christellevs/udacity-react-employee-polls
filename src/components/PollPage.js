@@ -15,9 +15,22 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
+const calculatePercent = (optionVotes, totalVotes) =>
+  Math.round((optionVotes / totalVotes) * 100 * 10) / 10;
+
 const PollPage = (props) => {
-  const { name, avatar, timestamp, optionOneText, optionTwoText, isAnswered } =
-    props.question;
+  const {
+    name,
+    avatar,
+    timestamp,
+    optionOneText,
+    optionOneVotes,
+    optionTwoText,
+    optionTwoVotes,
+    isAnswered,
+  } = props.question;
+
+  const totalVotes = optionOneVotes.length + optionTwoVotes.length;
 
   const onChangeVoteOne = (e) => {
     e.preventDefault();
@@ -46,9 +59,8 @@ const PollPage = (props) => {
   return (
     <div>
       <div>
-        <h3>
-          Poll by {name} at {timestamp}
-        </h3>
+        <h3>Poll by {name}</h3>
+        <h4>at {timestamp}</h4>
         <img src={avatar} alt="Poll Author Avatar" />
         <h3>Would you rather?</h3>
       </div>
@@ -65,7 +77,20 @@ const PollPage = (props) => {
           </div>
         </div>
       ) : (
-        <div>Question Answered!</div>
+        <div>
+          <div>
+            <p>{optionOneText}</p>
+            <p>
+              Votes: {optionOneVotes.length} -{" "}
+              {calculatePercent(optionOneVotes.length, totalVotes)} %
+            </p>
+          </div>
+          <div>
+            <p>{optionTwoText}</p>
+            Votes: {optionTwoVotes.length} -{" "}
+            {calculatePercent(optionTwoVotes.length, totalVotes)} %
+          </div>
+        </div>
       )}
     </div>
   );
