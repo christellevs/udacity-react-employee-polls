@@ -6,17 +6,23 @@ const Dashboard = (props) => {
   const [answered, setAnswered] = useState(false);
   const [unanswered, setUnanswered] = useState(true);
 
-  const filteredAnswered = Object.values(props.questions).filter(
-    (question) =>
-      question.optionOne.votes.includes(props.authedUser) ||
-      question.optionTwo.votes.includes(props.authedUser)
-  );
+  console.log(props.questions);
 
-  const filteredUnanswered = Object.values(props.questions).filter(
-    (question) =>
-      !question.optionOne.votes.includes(props.authedUser) &&
-      !question.optionTwo.votes.includes(props.authedUser)
-  );
+  const filteredAnswered = Object.values(props.questions)
+    .filter(
+      (question) =>
+        question.optionOne.votes.includes(props.authedUser) ||
+        question.optionTwo.votes.includes(props.authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
+
+  const filteredUnanswered = Object.values(props.questions)
+    .filter(
+      (question) =>
+        !question.optionOne.votes.includes(props.authedUser) &&
+        !question.optionTwo.votes.includes(props.authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 
   console.log("answered", filteredAnswered);
   console.log("unanswerd", filteredUnanswered);
