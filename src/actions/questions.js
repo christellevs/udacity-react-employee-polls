@@ -34,12 +34,12 @@ export function receiveQuestions(questions) {
   };
 }
 
-function answerQuestion({ id, authedUser, hasAnswered }) {
+function answerQuestion({ id, authedUser, option }) {
   return {
     type: ANSWER_QUESTION,
     id,
     authedUser,
-    hasAnswered,
+    option,
   };
 }
 
