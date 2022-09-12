@@ -17,14 +17,24 @@ const Login = (props) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <select value={selectedUser} onChange={onChange}>
-          {props.users.map((user) => (
-            <option key={user.id} value={user.id}>
-              {user.name}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Login</button>
+        <div>
+          <h3>Please select a user:</h3>
+          <select
+            className="login-input"
+            value={selectedUser}
+            onChange={onChange}
+          >
+            {props.users.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button type="submit" className="btn btn-login">
+          Login
+        </button>
       </form>
     </div>
   );

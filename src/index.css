@@ -13,40 +13,151 @@ code {
 }
 
 
+/* Navbar */
+
 .navbar {
   border-color: #aaa;
   margin-bottom: 30px;
   margin-top: 20px;
 }
-
 .navbar-element {
   margin-left: 20px;
+  text-decoration: none;
 }
-
 .navbar-user {
   margin-left: 80px
 }
-
 .navbar-user-img {
   height: 40px;
   width: 40px;
 }
-
-.logout-button {
-  background:rgb(44, 138, 133);
-  border-radius: 8px;
-  height: 30px;
-  color: #fff;
-
+.navbar-container {
+  width: 80%;
+  margin: auto;
 }
 
+
+/* Buttons */
+
+.btn {
+  background-color: #288490;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.btn-logout {
+  padding: 10px 21px;
+}
+.btn-dashboard-view {
+  padding: 5px 10px;
+}
+.btn-new-poll, .btn-login {
+  margin-top: 20px;
+  padding: 5px 10px;
+}
+.btn-vote {
+  padding: 5px 10px;
+}
+
+
+
+/* Dashboard */
+.dashboard-container {
+  margin-top: 30px;
+}
+.dashboard-avatar {
+  height: 60px;
+  width: 60px;
+}
+.dashboard-list-selector {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.label-right {
+  margin-left: 20px;
+}
+
+
+/* Poll */
+
 .poll {
+  margin: 0 auto;
   display: block;
   border-radius: 8px;
   border-style: solid;
-  border-color: #aaa;
+  border-color: #288490;
   color: #000;
   width: 50%;
-  height: 250px;
-  margin: 10px;
+  height: 200px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px 0 #75cfdb, 0 3px 10px 0 #75cfdb;
+}
+
+.poll-page-options-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin: 0 auto;
+  width: 80%
+}
+
+.poll-page-answers-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin: 0 auto;
+  width: 80%
+}
+
+/* New Poll */
+.new-poll-input, .login-input {
+  height: 25px;
+}
+
+.new-poll-inputs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin: 0 auto;
+  width: 80%
+}
+
+
+/* Leaderboard*/
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1pt solid  #288490;
+  border-collapse: collapse;
+}
+
+.leaderboard-table-avatar {
+  height: 40px;
+  width: 40px;
+  float: left;
+}
+
+td, th {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1pt solid #288490;
+}
+
+hr {
+  border: 1px solid  #288490;
+  background-color:  #288490;
 }

@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 
 const Leaderboard = (props) => {
   return (
-    <div>
-      <h3>Leaderboard</h3>
+    <div className="leaderboard-container">
+      <h2>Leaderboard</h2>
       <table>
         <thead>
           <tr>
@@ -17,8 +17,12 @@ const Leaderboard = (props) => {
           {props.users.map((user) => (
             <tr key={user.id}>
               <td>
-                <img src={user.avatarURL} alt="User Avatar URL" />
-                {user.name}
+                <img
+                  src={user.avatarURL}
+                  alt="User Avatar URL"
+                  className="leaderboard-table-avatar"
+                />
+                <p>{user.name}</p>
               </td>
               <td>{Object.keys(user.answers).length}</td>
               <td>{user.questions.length}</td>

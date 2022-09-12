@@ -33,9 +33,9 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <h3>Employee Web Polls</h3>
+    <div className="dashboard-container">
+      <div className="dashboard-list-selector">
+        <h2>Employee Web Polls</h2>
         <label>Answered</label>
         <input
           type="radio"
@@ -43,7 +43,7 @@ const Dashboard = (props) => {
           value={answered}
           onChange={onChangeAnswered}
         />
-        <label>Unanswered</label>
+        <label className="label-right">Unanswered</label>
         <input
           type="radio"
           checked={unanswered}
@@ -53,17 +53,15 @@ const Dashboard = (props) => {
       </div>
 
       {filteredUnanswered.length === 0 && unanswered && (
-        <div>No new polls!</div>
+        <div>No new polls! Go Create Some!</div>
       )}
       {filteredAnswered.length === 0 && !unanswered && (
         <div>No polls answered!</div>
       )}
       <div>
-        <ul>
-          {unanswered
-            ? filteredUnanswered.map((q) => <Poll key={q.id} id={q.id} />)
-            : filteredAnswered.map((q) => <Poll key={q.id} id={q.id} />)}
-        </ul>
+        {unanswered
+          ? filteredUnanswered.map((q) => <Poll key={q.id} id={q.id} />)
+          : filteredAnswered.map((q) => <Poll key={q.id} id={q.id} />)}
       </div>
     </div>
   );

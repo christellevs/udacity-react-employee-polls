@@ -18,9 +18,7 @@ const NewPoll = ({ dispatch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
-
     setOptionOneText("");
     setOptionTwoText("");
     navigate("/");
@@ -28,27 +26,29 @@ const NewPoll = ({ dispatch }) => {
 
   return (
     <div>
-      <h3>Would You Rather?</h3>
-      <h6>Create Your Own Poll</h6>
+      <h2>Would You Rather?</h2>
+      <h4>Create Your Own Poll</h4>
 
       <form className="new-poll" onSubmit={handleSubmit}>
-        <div>
+        <div className="new-poll-inputs-container">
           <input
             type="text"
             value={optionOneText}
             placeholder="Option One..."
             onChange={onChangeOptionOne}
+            className="new-poll-input"
           />
           <input
             type="text"
             value={optionTwoText}
             placeholder="Option Two..."
             onChange={onChangeOptionTwo}
+            className="new-poll-input"
           />
         </div>
         <div>
           <button
-            className="btn"
+            className="btn btn-new-poll"
             type="submit"
             disabled={optionOneText === "" || optionTwoText === ""}
           >

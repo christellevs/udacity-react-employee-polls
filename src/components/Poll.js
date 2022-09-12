@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
 
 const Poll = (props) => {
-  const { id, name, avatar, timestamp, optionOneText, optionTwoText } =
-    props.question;
+  const { id, name, avatar, timestamp } = props.question;
 
   return (
     <Link to={`questions/${id}`} className="poll">
       <div>
-        <img src={avatar} alt="Poll Author Avatar" />
-      </div>
-      <div>
+        <img
+          src={avatar}
+          alt="Poll Author Avatar"
+          className="dashboard-avatar"
+        />
         <h5>{name}</h5>
         <p>{timestamp}</p>
-        <p>Option 1: {optionOneText}</p>
-        <p>Option 2: {optionTwoText}</p>
+        <button className="btn btn-dashboard-view">View</button>
       </div>
     </Link>
   );

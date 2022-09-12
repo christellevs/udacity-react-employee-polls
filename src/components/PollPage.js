@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
@@ -59,24 +60,28 @@ const PollPage = (props) => {
     <div>
       <div>
         <h3>Poll by {name}</h3>
-        <h4>at {timestamp}</h4>
+        <h6>at {timestamp}</h6>
         <img src={avatar} alt="Poll Author Avatar" />
-        <h3>Would you rather?</h3>
+        <h2>Would you rather?</h2>
       </div>
       {!isAnswered ? (
-        <div>
-          <div>
+        <div className="poll-page-options-container">
+          <div className="poll-page-option">
             <p>{optionOneText}</p>
-            <button onClick={onChangeVoteOne}>Vote</button>
+            <button onClick={onChangeVoteOne} className="btn btn-vote">
+              Vote
+            </button>
           </div>
-          OR
-          <div>
+          <p>OR</p>
+          <div className="poll-page-option">
             <p>{optionTwoText}</p>
-            <button onClick={onChangeVoteTwo}>Vote</button>
+            <button onClick={onChangeVoteTwo} className="btn btn-vote">
+              Vote
+            </button>
           </div>
         </div>
       ) : (
-        <div>
+        <div className="poll-page-answers-container">
           <div>
             <p>{optionOneText}</p>
             <p>
