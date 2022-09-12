@@ -13,8 +13,30 @@ code {
 }
 
 
-.poll-list {
+.navbar {
+  border-color: #aaa;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
 
+.navbar-element {
+  margin-left: 20px;
+}
+
+.navbar-user {
+  margin-left: 80px
+}
+
+.navbar-user-img {
+  height: 40px;
+  width: 40px;
+}
+
+.logout-button {
+  background:rgb(44, 138, 133);
+  border-radius: 8px;
+  height: 30px;
+  color: #fff;
 
 }
 
