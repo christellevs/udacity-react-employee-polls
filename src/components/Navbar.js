@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutAuthedUser } from "../actions/authedUser.js";
 
 const Navbar = (props) => {
+  const onClickLogout = () => {
+    return props.dispatch(logoutAuthedUser());
+  };
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-element">
@@ -18,7 +22,9 @@ const Navbar = (props) => {
         {props.user.name}
       </span>
       <Link to="/login" className="navbar-element">
-        <button className="logout-button">Logout</button>
+        <button onClick={onClickLogout} className="logout-button">
+          Logout
+        </button>
       </Link>
     </nav>
   );
