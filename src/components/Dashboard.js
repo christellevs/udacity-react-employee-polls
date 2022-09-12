@@ -52,6 +52,12 @@ const Dashboard = (props) => {
         />
       </div>
 
+      {filteredUnanswered.length === 0 && unanswered && (
+        <div>No new polls!</div>
+      )}
+      {filteredAnswered.length === 0 && !unanswered && (
+        <div>No polls answered!</div>
+      )}
       <div>
         <ul>
           {unanswered
@@ -65,9 +71,6 @@ const Dashboard = (props) => {
 
 const mapStateToProps = ({ authedUser, questions }) => ({
   authedUser,
-  questionIds: Object.keys(questions).sort(
-    (a, b) => questions[b].timestamp - questions[a].timestamp
-  ),
   questions,
 });
 
