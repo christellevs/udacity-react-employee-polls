@@ -4,7 +4,7 @@ import { setAuthedUser } from "../actions/authedUser.js";
 
 const Login = (props) => {
   const [selectedUser, setSelectedUser] = useState(props.users[0].id);
-
+  console.log(props.authedUser);
   const onChange = (e) => {
     setSelectedUser(e.target.value);
   };
@@ -30,8 +30,9 @@ const Login = (props) => {
   );
 };
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ authedUser, users }) => {
   return {
+    authedUser,
     users: Object.values(users),
   };
 };
