@@ -20,8 +20,6 @@ const NewPoll = ({ dispatch }) => {
     e.preventDefault();
 
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
-    console.log("Option one", optionOneText);
-    console.log("Option two", optionTwoText);
 
     setOptionOneText("");
     setOptionTwoText("");
