@@ -100,7 +100,7 @@ code {
 
 .poll-page-options-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   margin-right: 40px;
   margin-left: 40px;
@@ -115,8 +115,22 @@ code {
   margin-right: 40px;
   margin-left: 40px;
   margin: 0 auto;
-  width: 80%
+  width: 80%;
 }
+
+.poll-page-option {
+  border: 2px solid #474747;
+  border-radius: 4px;
+  padding: 5px;
+
+}
+
+.option-voted {
+  border: 2px solid #288490;
+  border-radius: 4px;
+  background-color: #aceff7;
+}
+
 
 /* New Poll */
 .new-poll-input, .login-input {

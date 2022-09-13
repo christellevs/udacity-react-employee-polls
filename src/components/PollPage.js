@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
@@ -28,9 +27,14 @@ const PollPage = (props) => {
     optionTwoText,
     optionTwoVotes,
     isAnswered,
+    isOptionOneVoted,
+    isOptionTwoVoted,
   } = props.question;
 
   const totalVotes = optionOneVotes.length + optionTwoVotes.length;
+
+  console.log("option one: ", isOptionOneVoted);
+  console.log("option two: ", isOptionTwoVoted);
 
   const onChangeVoteOne = (e) => {
     e.preventDefault();
@@ -72,7 +76,6 @@ const PollPage = (props) => {
               Vote
             </button>
           </div>
-          <p>OR</p>
           <div className="poll-page-option">
             <p>{optionTwoText}</p>
             <button onClick={onChangeVoteTwo} className="btn btn-vote">
@@ -82,14 +85,18 @@ const PollPage = (props) => {
         </div>
       ) : (
         <div className="poll-page-answers-container">
-          <div>
+          <div
+            className={isOptionOneVoted ? "option-voted" : "poll-page-option "}
+          >
             <p>{optionOneText}</p>
             <p>
               Votes: {optionOneVotes.length} -{" "}
               {calculatePercent(optionOneVotes.length, totalVotes)} %
             </p>
           </div>
-          <div>
+          <div
+            className={isOptionTwoVoted ? "option-voted" : "poll-page-option "}
+          >
             <p>{optionTwoText}</p>
             Votes: {optionTwoVotes.length} -{" "}
             {calculatePercent(optionTwoVotes.length, totalVotes)} %

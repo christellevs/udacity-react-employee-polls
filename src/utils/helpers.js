@@ -22,5 +22,7 @@ export function formatQuestion(question, questionAuthor, authedUser) {
       optionTwo.votes.includes(authedUser)
         ? true
         : false,
+    isOptionOneVoted: optionOne.votes.includes(authedUser),
+    isOptionTwoVoted: optionTwo.votes.includes(authedUser),
   };
 }
