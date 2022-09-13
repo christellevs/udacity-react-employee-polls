@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser.js";
 
 const Login = (props) => {
-  const [selectedUser, setSelectedUser] = useState(props.users[0].id);
+  const [selectedUser, setSelectedUser] = useState();
+  const navigate = useNavigate();
+
   console.log(props.authedUser);
   const onChange = (e) => {
     setSelectedUser(e.target.value);
@@ -12,6 +15,7 @@ const Login = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     props.dispatch(setAuthedUser(selectedUser));
+    navigate("/");
   };
 
   return (

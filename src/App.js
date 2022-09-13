@@ -20,18 +20,18 @@ function App(props) {
     <div className="App">
       <LoadingBar />
       <div>
-        {props.loading === true ? null : (
-          <>
-            <Navbar />
-            <Routes>
+        {props.loading ? null : <Navbar />}
+        <Routes>
+          {props.loading ? null : (
+            <>
               <Route exact path="/" element={<Dashboard />} />
               <Route exact path="/add" element={<NewPoll />} />
               <Route exact path="/leaderboard" element={<Leaderboard />} />
               <Route exact path="/questions/:id" element={<PollPage />} />
-              <Route exact path="/login" element={<Login />} />
-            </Routes>
-          </>
-        )}
+            </>
+          )}
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
       </div>
     </div>
   );
