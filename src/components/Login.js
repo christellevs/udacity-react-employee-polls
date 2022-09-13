@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser.js";
 
 const Login = (props) => {
-  const [selectedUser, setSelectedUser] = useState();
+  const [selectedUser, setSelectedUser] = useState(null);
   const navigate = useNavigate();
 
-  console.log(props.authedUser);
   const onChange = (e) => {
     setSelectedUser(e.target.value);
   };
@@ -25,11 +24,10 @@ const Login = (props) => {
       <form onSubmit={onSubmit}>
         <div>
           <h3>Please select a user:</h3>
-          <select
-            className="login-input"
-            value={selectedUser}
-            onChange={onChange}
-          >
+          <select className="login-input" value={null} onChange={onChange}>
+            <option value="none" disabled selected>
+              Select user...
+            </option>
             {props.users.map((user) => (
               <option key={user.id} value={user.id}>
                 {user.name}
