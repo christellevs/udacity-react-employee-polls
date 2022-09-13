@@ -31,7 +31,7 @@ code {
   height: 40px;
   width: 40px;
 }
-.navbar-container {
+.navbar-container, .login-container {
   width: 80%;
   margin: auto;
 }

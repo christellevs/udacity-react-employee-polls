@@ -19,7 +19,9 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="login-container">
+      <h2>Employee Web Polls</h2>
+      <hr />
       <form onSubmit={onSubmit}>
         <div>
           <h3>Please select a user:</h3>
