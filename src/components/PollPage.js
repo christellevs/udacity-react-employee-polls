@@ -41,9 +41,6 @@ const PollPage = (props) => {
 
   const totalVotes = optionOneVotes.length + optionTwoVotes.length;
 
-  console.log("option one: ", isOptionOneVoted);
-  console.log("option two: ", isOptionTwoVoted);
-
   const onChangeVoteOne = (e) => {
     e.preventDefault();
     const { dispatch, question, authedUser } = props;

@@ -39,7 +39,7 @@ const NewPoll = ({ dispatch }) => {
               placeholder="Option One..."
               onChange={onChangeOptionOne}
               className="new-poll-input"
-              data-testid="first-option-input"
+              data-testid="option-one-input"
             />
           </div>
           <div className="new-poll-div">
@@ -50,7 +50,7 @@ const NewPoll = ({ dispatch }) => {
               placeholder="Option Two..."
               onChange={onChangeOptionTwo}
               className="new-poll-input"
-              data-testid="second-option-input"
+              data-testid="option-two-input"
             />
           </div>
         </div>

@@ -7,10 +7,10 @@ const Leaderboard = (props) => {
       <table>
         <thead>
           <tr>
-            <th>User</th>
-            <th>Answered</th>
-            <th>Created</th>
-            <th>Total</th>
+            <th data-testid="user-column">User</th>
+            <th data-testid="answered-column">Answered</th>
+            <th data-testid="created-column">Created</th>
+            <th data-testid="total-column">Total</th>
           </tr>
         </thead>
         <tbody>
