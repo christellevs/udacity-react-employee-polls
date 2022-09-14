@@ -4,12 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./reducers";
-import middleware from "./middleware";
-
-const store = createStore(reducer, middleware);
+import { store } from "./store.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
