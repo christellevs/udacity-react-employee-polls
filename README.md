@@ -1,5 +1,100 @@
 # Employee Polls Project
 
+## Overview
+
+This is the final solution for the Udacity React Nanodegree - React & Redux Course - Employee Web Polls project - completed by Christelle Van Sebroeck - 14-09-2022.
+It utilized create-react-app and the `_DATA.js` file provided by Udacity.
+
+## Installation
+
+To run this project:
+
+1. clone the repository with:
+
+   `git clone https://github.com/christellevs/udacity-react-employee-polls.git`
+
+2. ensure you are in the correct directory 'udacity-react-employee-polls' with:
+
+   `cd udacity-react-employee-polls/`
+
+3. install all project dependencies with:
+
+   `npm install`
+
+4. start the development server with:
+
+   `npm start`
+
+5. run all test suites with:
+
+   `npm test`
+
+## What You're Getting
+
+```bash
+├── README.md - This file.
+├── CODEOWNERS # Provided by Udacity
+├── LICENSE.txt # License provided by Udacity
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── package-lock.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── .gitignore # To tell Git which files to ignore pushing to the repository.
+├── public
+│   ├── favicon.ico # React Icon, You may change if you wish.
+|   ├── logo192.png # Provided by create-react-app
+|   ├── logo512.png # Provided by create-react-app
+|   ├── manifest.json # Provided by create-react-app
+|   ├── robots.txt # Provided by create-react-app
+│   └── index.html # DO NOT MODIFY
+|
+└── src
+    ├── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── index.css # CSS styling for the app.
+    ├── App.js # This is the root of the app.
+    ├── App.css # This is css styling for App.js
+    ├── store.js # Redux store - so it's accessible by both index.js and test files.
+    ├── setupTests.js # Set up for Jest testing.
+    ├── action # Where all the action reside.
+    |   ├── authedUser.js # action for authedUser state.
+    |   ├── questions.js # action for questions state.
+    |   ├── shared.js # action for shared state.
+    |   └── users.js # action for users state.
+    ├── components # Where all the components reside.
+    |   ├── AuthorisedRoute.js # Aids in the redirection and authentication flow.
+    |   ├── Dashboard.js # This holds unanswered and answered polls.
+    |   ├── Error404Page.js # Error message if page not found.
+    |   ├── Leaderboard.js # Sorted leaderboard of employees polls create and answered.
+    |   ├── Login.js # Login component for app.
+    |   ├── Navbar.js # Navbar component for app - shows which user is currently logged in.
+    |   ├── NewPolls.js # Component for creating new employee poll.
+    |   ├── Poll.js # Poll view for Dashboard page.
+    |   └── PollPage.js # Page where employees can vote on polls.
+    ├── middleware # Where all the middleware resides.
+    │   ├── index.js # Index file for applying middleware with Redux.
+    |   └── logger.js # Logger function for state used in middleware.
+    ├── reducers # Where all the reducers reside.
+    |   ├── authedUser.js # reducer for authedUser state.
+    |   ├── index.js # reducer for combined state.
+    |   ├── questions.js # reducer for questions state.
+    |   └── users.js # reducer for users state.
+    ├── tests # Where all the reducers reside.
+    |   ├── __snapshots__
+    |   |   ├── App.test.js.snap # Test snapshot for App component.
+    |   |   ├── Leaderboard.test.js.snap # Test snapshot for Leaderboard component.
+    |   |   └── NewPoll.test.js.snap # Test snapshot for NewPoll component.
+    |   ├── _DATA.test.js # tests for backend provided by Udacity.
+    |   ├── App.test.js # test file for App component.
+    |   ├── Leaderboard.test.js # test file for Leaderboard component.
+    |   └── NewPoll.test.js # test file for NewPoll component.
+    └── utils # Helpful files and functions.
+        ├── _DATA_.js # backend provided by Udacity.
+        ├── api.js # api file created to aid in handling backend.
+        └── helpers.js # Helper functions accessible to components.
+```
+
+## Backend Server
+
+(Below written by Udacity)
+
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
@@ -95,74 +190,3 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 | authedUser | String | The id of the user who answered the question                                            |
 | qid        | String | The id of the question that was answered                                                |
 | answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
