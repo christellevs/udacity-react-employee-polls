@@ -15,7 +15,13 @@ import LoadingBar from "react-redux-loading-bar";
 
 function App(props) {
   useEffect(() => {
-    props.dispatch(handleInitialData());
+    let mounted = true;
+    if (mounted) {
+      props.dispatch(handleInitialData());
+    }
+    return () => {
+      mounted = false;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
