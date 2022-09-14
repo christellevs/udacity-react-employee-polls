@@ -1,21 +1,31 @@
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logoutAuthedUser } from "../actions/authedUser.js";
 
 const Navbar = (props) => {
   const onClickLogout = () => {
     return props.dispatch(logoutAuthedUser());
   };
+
+  const { pathname } = useLocation();
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <Link to="/" className="navbar-element">
+        <Link
+          to="/"
+          state={{ previousPath: pathname }}
+          className="navbar-element"
+        >
           Home
         </Link>
         <Link to="/add" className="navbar-element">
           New Poll
         </Link>
-        <Link to="/leaderboard" className="navbar-element">
+        <Link
+          to="/leaderboard"
+          state={{ previousPath: pathname }}
+          className="navbar-element"
+        >
           Leaderboard
         </Link>
         <span className="navbar-element navbar-user">
