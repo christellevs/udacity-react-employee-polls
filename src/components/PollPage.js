@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  Navigate,
+} from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
 import { handleAnswerQuestion } from "../actions/questions.js";
 
@@ -18,6 +23,9 @@ const calculatePercent = (optionVotes, totalVotes) =>
   Math.round((optionVotes / totalVotes) * 100 * 10) / 10;
 
 const PollPage = (props) => {
+  if (!props.authedUser || !props.question || !props.id) {
+    return <Navigate to="/404" />;
+  }
   const {
     name,
     avatar,
@@ -108,13 +116,17 @@ const PollPage = (props) => {
 };
 
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
-  const { id } = props.router.params;
-  const question = questions[id];
-  return {
-    id,
-    question: formatQuestion(question, users[question.author], authedUser),
-    authedUser,
-  };
+  try {
+    const { id } = props.router.params;
+    const question = questions[id];
+    return {
+      id,
+      question: formatQuestion(question, users[question.author], authedUser),
+      authedUser,
+    };
+  } catch (e) {
+    return <Navigate to="/404" />;
+  }
 };
 
 export default withRouter(connect(mapStateToProps)(PollPage));
