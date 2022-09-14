@@ -22,7 +22,11 @@ const Navbar = (props) => {
           Leaderboard
         </Link>
         <span className="navbar-element navbar-user">
-          <img className="navbar-user-img" src={props.user.avatarURL} />{" "}
+          <img
+            className="navbar-user-img"
+            alt="Authorised User Avatar"
+            src={props.user.avatarURL}
+          />{" "}
           {props.user.name}
         </span>
         <Link

@@ -16,6 +16,7 @@ import LoadingBar from "react-redux-loading-bar";
 function App(props) {
   useEffect(() => {
     props.dispatch(handleInitialData());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
