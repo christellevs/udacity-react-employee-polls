@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App.js";
+import App from "../App.js";
 import { Provider } from "react-redux";
-import { store } from "./store.js";
+import { store } from "../store.js";
 import { BrowserRouter } from "react-router-dom";
 
 test("renders learn react link", () => {
@@ -12,7 +12,7 @@ test("renders learn react link", () => {
       </BrowserRouter>
     </Provider>
   );
-  screen.debug();
+  // screen.debug();
   // const linkElement = screen.getByText(/learn react/i);
   // expect(linkElement).toBeInTheDocument();
 });
