@@ -5,6 +5,8 @@
 This is the final solution for the Udacity React Nanodegree - React & Redux Course - Employee Web Polls project - completed by Christelle Van Sebroeck - 14-09-2022.
 It utilized create-react-app and the `_DATA.js` file provided by Udacity.
 
+The Udacity provided Chirper app: https://github.com/udacity/reactnd-chirper-app was used as a base for understanding and applying Redux in this project
+
 ## Installation
 
 To run this project:
@@ -90,6 +92,10 @@ To run this project:
         ├── api.js # api file created to aid in handling backend.
         └── helpers.js # Helper functions accessible to components.
 ```
+
+## Third party Avatar provider
+
+For this project I used the following Avatar Generator: https://anitar.dev/
 
 ## Backend Server
 
