@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import Leaderboard from "../components/Leaderboard";
 import { Provider } from "react-redux";
-import { store } from "../store.js";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "../store.js";
+import Leaderboard from "../components/Leaderboard";
 
 describe("Leaderboard", () => {
   it("will match snapshot", () => {
