@@ -18,22 +18,39 @@ Object {
           <div
             class="new-poll-inputs-container"
           >
-            <input
-              class="new-poll-input"
-              placeholder="Option One..."
-              type="text"
-              value=""
-            />
-            <input
-              class="new-poll-input"
-              placeholder="Option Two..."
-              type="text"
-              value=""
-            />
+            <div
+              class="new-poll-div"
+            >
+              <label>
+                Option One:
+              </label>
+              <input
+                class="new-poll-input"
+                data-testid="option-one-input"
+                placeholder="Option One..."
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="new-poll-div"
+            >
+              <label>
+                Option Two:
+              </label>
+              <input
+                class="new-poll-input"
+                data-testid="option-two-input"
+                placeholder="Option Two..."
+                type="text"
+                value=""
+              />
+            </div>
           </div>
           <div>
             <button
               class="btn btn-new-poll"
+              data-testid="submit-poll-button"
               disabled=""
               type="submit"
             >
@@ -58,22 +75,39 @@ Object {
         <div
           class="new-poll-inputs-container"
         >
-          <input
-            class="new-poll-input"
-            placeholder="Option One..."
-            type="text"
-            value=""
-          />
-          <input
-            class="new-poll-input"
-            placeholder="Option Two..."
-            type="text"
-            value=""
-          />
+          <div
+            class="new-poll-div"
+          >
+            <label>
+              Option One:
+            </label>
+            <input
+              class="new-poll-input"
+              data-testid="option-one-input"
+              placeholder="Option One..."
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="new-poll-div"
+          >
+            <label>
+              Option Two:
+            </label>
+            <input
+              class="new-poll-input"
+              data-testid="option-two-input"
+              placeholder="Option Two..."
+              type="text"
+              value=""
+            />
+          </div>
         </div>
         <div>
           <button
             class="btn btn-new-poll"
+            data-testid="submit-poll-button"
             disabled=""
             type="submit"
           >

@@ -14,16 +14,24 @@ Object {
         <table>
           <thead>
             <tr>
-              <th>
+              <th
+                data-testid="user-column"
+              >
                 User
               </th>
-              <th>
+              <th
+                data-testid="answered-column"
+              >
                 Answered
               </th>
-              <th>
+              <th
+                data-testid="created-column"
+              >
                 Created
               </th>
-              <th>
+              <th
+                data-testid="total-column"
+              >
                 Total
               </th>
             </tr>
@@ -43,16 +51,24 @@ Object {
       <table>
         <thead>
           <tr>
-            <th>
+            <th
+              data-testid="user-column"
+            >
               User
             </th>
-            <th>
+            <th
+              data-testid="answered-column"
+            >
               Answered
             </th>
-            <th>
+            <th
+              data-testid="created-column"
+            >
               Created
             </th>
-            <th>
+            <th
+              data-testid="total-column"
+            >
               Total
             </th>
           </tr>
