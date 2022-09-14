@@ -40,7 +40,11 @@ const Login = (props) => {
           </select>
         </div>
 
-        <button type="submit" className="btn btn-login">
+        <button
+          type="submit"
+          className="btn btn-login"
+          disabled={selectedUser === "none" ? true : false}
+        >
           Login
         </button>
       </form>
