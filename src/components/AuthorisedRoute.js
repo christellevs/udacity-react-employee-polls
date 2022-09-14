@@ -1,11 +1,17 @@
 import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
+
 const AuthorisedRoute = (props) => {
-  console.log("auth route props: ", props);
-  return props.authedUser ? props.children : <Navigate to={"/login"} />;
+  const location = useLocation();
+
+  return props.isAuthorised === true ? (
+    props.children
+  ) : (
+    <Navigate to={"/login"} state={{ from: location }} replace />
+  );
 };
 
 const mapStateToProps = ({ authedUser }) => ({
-  authedUser: authedUser ? true : false,
+  isAuthorised: authedUser ? true : false,
 });
 export default connect(mapStateToProps)(AuthorisedRoute);

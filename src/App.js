@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Route, Routes, useNavigate, Redirect } from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import { handleInitialData } from "./actions/shared.js";
 import AuthorisedRoute from "./components/AuthorisedRoute";
 import Navbar from "./components/Navbar.js";
@@ -14,12 +14,9 @@ import Error404Page from "./components/Error404Page.js";
 import LoadingBar from "react-redux-loading-bar";
 
 function App(props) {
-  const navigate = useNavigate();
   useEffect(() => {
     props.dispatch(handleInitialData());
   }, []);
-
-  console.log("props autheduser", props.authedUser);
 
   return (
     <div className="App">
@@ -53,10 +50,17 @@ function App(props) {
               </AuthorisedRoute>
             }
           />
-          <Route exact path="/leaderboard" element={<Leaderboard />} />
-          <Route exact path="/questions/:id" element={<PollPage />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/404" element={<Error404Page />} />
+          <Route
+            exact
+            path="/questions/:id"
+            element={
+              <AuthorisedRoute>
+                <PollPage />
+              </AuthorisedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/404" element={<Error404Page />} />
         </Routes>
       </div>
     </div>

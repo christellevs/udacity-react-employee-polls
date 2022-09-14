@@ -6,8 +6,8 @@ import { setAuthedUser } from "../actions/authedUser.js";
 const Login = (props) => {
   const [selectedUser, setSelectedUser] = useState("none");
   const navigate = useNavigate();
-  // const { state } = useLocation();
-  // console.log("path hist", state?.previousPath);
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const onChange = (e) => {
     setSelectedUser(e.target.value);
@@ -16,7 +16,7 @@ const Login = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     props.dispatch(setAuthedUser(selectedUser));
-    navigate(-1);
+    navigate(from, { replace: true });
   };
 
   return (
@@ -56,7 +56,7 @@ const Login = (props) => {
 
 const mapStateToProps = ({ authedUser, users }) => {
   return {
-    authedUser,
+    isAuthorised: authedUser === null ? false : true,
     users: Object.values(users),
   };
 };

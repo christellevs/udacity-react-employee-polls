@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { formatQuestion } from "../utils/helpers.js";
 import { handleAnswerQuestion } from "../actions/questions.js";
+// import { logoutAuthedUser } from "../actions/authedUser.js";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -24,6 +25,7 @@ const calculatePercent = (optionVotes, totalVotes) =>
 
 const PollPage = (props) => {
   if (!props.authedUser || !props.question || !props.id) {
+    // props.dispatch(logoutAuthedUser());
     return <Navigate to="/404" />;
   }
   const {
