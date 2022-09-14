@@ -72,17 +72,21 @@ code {
 /* Dashboard */
 .dashboard-container {
   margin-top: 30px;
+  margin: 0 auto;
+  display: block;
 }
 .dashboard-avatar {
   height: 60px;
   width: 60px;
 }
-.dashboard-list-selector {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.label-right {
-  margin-left: 20px;
+
+.dashboard-list-selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin: 0 auto;
+  width: 40%;
+  margin-bottom: 20px;
 }
 
 
@@ -181,8 +185,4 @@ tr {
 hr {
   border: 1px solid  #288490;
   background-color:  #288490;
-}
-
-input, label {
-  display: block;
 }

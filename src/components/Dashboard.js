@@ -34,24 +34,30 @@ const Dashboard = (props) => {
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-list-selector">
-        <h2>Employee Web Polls</h2>
-        <label>Answered</label>
-        <input
-          type="radio"
-          checked={answered}
-          value={answered}
-          onChange={onChangeAnswered}
-        />
-        <label className="label-right">Unanswered</label>
-        <input
-          type="radio"
-          checked={unanswered}
-          value={unanswered}
-          onChange={onChangeUnanswered}
-        />
-      </div>
+      <h2>Employee Web Polls</h2>
+      <form className="dashboard-list-selectors">
+        <label>
+          <input
+            type="radio"
+            name="answered"
+            checked={answered}
+            value={answered}
+            onChange={onChangeAnswered}
+          />
+          Answered
+        </label>
 
+        <label className="label-right">
+          <input
+            type="radio"
+            name="unanswered"
+            checked={unanswered}
+            value={unanswered}
+            onChange={onChangeUnanswered}
+          />
+          Unanswered
+        </label>
+      </form>
       {filteredUnanswered.length === 0 && unanswered && (
         <div>No new polls! Go Create Some!</div>
       )}
