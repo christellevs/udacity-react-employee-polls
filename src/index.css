@@ -39,6 +39,10 @@ code {
 
 /* Buttons */
 
+.btn:disabled {
+  background-color: #aaa;
+}
+
 .btn {
   background-color: #288490;
   border-radius: 4px;
@@ -147,6 +151,9 @@ code {
   width: 80%
 }
 
+.new-poll-div, .new-poll-input {
+  width: 100%;
+}
 
 /* Leaderboard*/
 table {
@@ -174,4 +181,8 @@ tr {
 hr {
   border: 1px solid  #288490;
   background-color:  #288490;
+}
+
+input, label {
+  display: block;
 }

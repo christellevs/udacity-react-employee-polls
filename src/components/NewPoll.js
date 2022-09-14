@@ -31,20 +31,26 @@ const NewPoll = ({ dispatch }) => {
 
       <form className="new-poll" onSubmit={handleSubmit}>
         <div className="new-poll-inputs-container">
-          <input
-            type="text"
-            value={optionOneText}
-            placeholder="Option One..."
-            onChange={onChangeOptionOne}
-            className="new-poll-input"
-          />
-          <input
-            type="text"
-            value={optionTwoText}
-            placeholder="Option Two..."
-            onChange={onChangeOptionTwo}
-            className="new-poll-input"
-          />
+          <div className="new-poll-div">
+            <label>Option One:</label>
+            <input
+              type="text"
+              value={optionOneText}
+              placeholder="Option One..."
+              onChange={onChangeOptionOne}
+              className="new-poll-input"
+            />
+          </div>
+          <div className="new-poll-div">
+            <label>Option Two:</label>
+            <input
+              type="text"
+              value={optionTwoText}
+              placeholder="Option Two..."
+              onChange={onChangeOptionTwo}
+              className="new-poll-input"
+            />
+          </div>
         </div>
         <div>
           <button
