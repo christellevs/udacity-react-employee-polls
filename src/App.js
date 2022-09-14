@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { handleInitialData } from "./actions/shared.js";
 import AuthorisedRoute from "./components/AuthorisedRoute";
 import Navbar from "./components/Navbar.js";
